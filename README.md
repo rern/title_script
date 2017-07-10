@@ -28,6 +28,6 @@ Color code for [color], [background], N:
           3 ---- yellow
           4 ---- blue
           5 ---- magenta
-          6 ---- cyan (default)1
+          6 ---- cyan (default)
           7 ---- white
 ```
