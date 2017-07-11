@@ -8,10 +8,13 @@ BASH script for drawing colored string with top-bottom lines
 ```
          usage:  place 'title.sh' file in the same directory
                  type command or add this line to script: . title.sh
+                 
        command:  title [OPTION]... STRING
-
-  colored line:  $( linecolor CHARACTER [color] )
-colored string:  $( textcolor STRING [color] [background] )
+              :  linecolor CHARACTER [color]
+              :  textcolor STRING [color] [background]
+              
+inline command:  $( linecolor CHARACTER [color] )
+              :  $( textcolor STRING [color] [background] )
 
 OPTION:
           -?     help (this)
@@ -19,10 +22,6 @@ OPTION:
           -l C   C - line character
           -nt    no top line
           -nb    no bottom line
-Badge:
-          [   ]  $bar
-          [ i ]  $info
-          [ ! ]  $warn
 Color code for [color], [background], N:
           0 ---- black
           1 ---- red
@@ -32,4 +31,8 @@ Color code for [color], [background], N:
           5 ---- magenta
           6 ---- cyan (default)
           7 ---- white
+Badge:
+          [   ]  $bar
+          [ i ]  $info
+          [ ! ]  $warn
 ```
