@@ -1,7 +1,9 @@
 title.sh script
 ---
 
-BASH script for drawing colored string with top-bottom lines
+BASH script for drawing colored string with top-bottom lines  
+
+![screen](https://github.com/rern/title_script/blob/master/title.png)
 
 ```
          usage:  place 'title.sh' file in the same directory
