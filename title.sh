@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Draw colored string with top-bottom lines
+[[ $1 == -h || $1 == --help || -? ]] && usage
 
 linecolor() {
 	if [[ -z $2 ]] || (( $2 > 6 )); then
@@ -84,6 +85,4 @@ usage() {
 	echo "${t}"$info'    $info'   
 	echo "${t}"$warn'    $warn'
 	linecolor -
-}	
-
-[[ $# > 0 ]] && usage
+}
