@@ -13,8 +13,10 @@ BASH script for drawing colored string with top-bottom lines
               :  linecolor CHARACTER [color]
               :  textcolor STRING [color] [background]
               
-inline command:  $( linecolor CHARACTER [color] )
-              :  $( textcolor STRING [color] [background] )
+inline command:  $( textcolor STRING [color] [background] )
+
+STRING:          quoted or unquote strings, without 0r with spaces
+CHARACTER:       single character for lines
 
 OPTION:
           -?     help (this)
