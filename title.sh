@@ -56,22 +56,21 @@ usage() {
 	linecolor -
 	echo '         usage:  place this file in the same directory'
 	echo '                 type command or add this line to script:' $( textcolor '. title.sh' )
+	echo
 	echo '       command:  title [OPTION]... STRING'
 	echo '                 linecolor CHARACTER [color]'
 	echo '                 textcolor STRING [color]'
 	echo
 	echo 'inline command:  $( textcolor STRING [color] [background] )'
 	echo
-	echo 'STRING:          quoted or unquote strings, without 0r with spaces
+	echo 'STRING:          quoted or unquote strings, without 0r with spaces'
 	echo 'CHARACTER:       single character for lines'
-	echo
-	echo 'OPTION:'
-	echo "${t}"'-?     help (this)'
+	echo 'OPTION:   -?     help (this)'
 	echo "${t}"'-c N   N - line color'
 	echo "${t}"'-l C   C - line character'
 	echo "${t}"'-nt    no top line'
 	echo "${t}"'-nb    no bottom line'   
-	echo 'Color code for [color], [background], N:'
+	echo 'Color:           code for [color], [background], N:'
 	echo "${t}"'0      0 black'
 	echo "${t}"$( textcolor 1 7 1 ) $( textcolor '---- 1' 1 ) 'red'
 	echo "${t}"$( textcolor 2 0 2 ) $( textcolor '---- 2' 2 ) 'green'
@@ -80,7 +79,7 @@ usage() {
 	echo "${t}"$( textcolor 5 7 5 ) $( textcolor '---- 5' 5 ) 'magenta'
 	echo "${t}"$( textcolor 6 0 6 ) $( textcolor '---- 6' 6 ) 'cyan'
 	echo "${t}"$( textcolor 7 0 7 ) '---- 7 white'
-	echo 'Badge:'
+	echo 'Badge:           built-in variables'
 	echo "${t}"$bar'    $bar'   
 	echo "${t}"$info'    $info'   
 	echo "${t}"$warn'    $warn'
