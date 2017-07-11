@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Draw colored string with top-bottom lines
-# by rern
 
 linecolor() {
 	if [[ -z $2 ]] || (( $2 > 6 )); then
@@ -85,11 +84,11 @@ usage() {
 	echo 'STRING:          quoted or unquote strings, variables (same as "echo")'
 	echo 'CHARACTER:       single character for lines'
 	echo 'OPTION:   -c N   N - color: line'
-	echo "${t}"'-ct N  N - color: top line'
-	echo "${t}"'-cb N  N - color: bottom line'
+	echo "${t}"'-ct N  N - color: line-top'
+	echo "${t}"'-cb N  N - color: line-bottom'
 	echo "${t}"'-l C   C - line:  character'
-	echo "${t}"'-lt C  C - line:  top character'
-	echo "${t}"'-lb C  C - line:  bottom character'
+	echo "${t}"'-lt C  C - line:  character-top'
+	echo "${t}"'-lb C  C - line:  character-bottom'
 	echo "${t}"'-nt    no line:   top'
 	echo "${t}"'-nb    no line:   bottom'   
 	echo "${t}"'-?, -h this info'
