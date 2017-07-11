@@ -77,7 +77,7 @@ usage() {
 	echo "${t}"$( textcolor 3 0 3 ) $( textcolor '---- 3' 3 ) 'yellow'
 	echo "${t}"$( textcolor 4 7 4 ) $( textcolor '---- 4' 4 ) 'blue'
 	echo "${t}"$( textcolor 5 7 5 ) $( textcolor '---- 5' 5 ) 'magenta'
-	echo "${t}"$( textcolor 6 0 6 ) $( textcolor '---- 6' 6 ) 'cyan'
+	echo "${t}"$( textcolor 6 0 6 ) $( textcolor '---- 6' 6 ) 'cyan (default)'
 	echo "${t}"$( textcolor 7 0 7 ) '---- 7 white'
 	echo 'Badge:           built-in variables'
 	echo "${t}"$bar'    $bar'   
