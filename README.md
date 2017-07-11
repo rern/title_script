@@ -17,14 +17,12 @@ inline command:  $( textcolor STRING [color] [background] )
 
 STRING:          quoted or unquote strings, without 0r with spaces
 CHARACTER:       single character for lines
-
-OPTION:
-          -?     help (this)
+OPTION:   -?     help (this)
           -c N   N - line color
           -l C   C - line character
           -nt    no top line
           -nb    no bottom line
-Color code for [color], [background], N:
+Color:           code for [color], [background], N
           0 ---- black
           1 ---- red
           2 ---- green
@@ -33,7 +31,7 @@ Color code for [color], [background], N:
           5 ---- magenta
           6 ---- cyan (default)
           7 ---- white
-Badge:
+Badge:           built-in variables
           [   ]  $bar
           [ i ]  $info
           [ ! ]  $warn
