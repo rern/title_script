@@ -72,14 +72,14 @@ usage() {
 	echo "${t}"$info'    $info'   
 	echo "${t}"$warn'    $warn'   
 	echo 'Color code for [color], [background], N:'
-	echo "${t}"'0      black'
-	echo "${t}"$( textcolor '1 ----' 1 ) 'red'
-	echo "${t}"$( textcolor '2 ----' 2 ) 'green'
-	echo "${t}"$( textcolor '3 ----' 3 ) 'yellow'
-	echo "${t}"$( textcolor '4 ----' 4 ) 'blue'
-	echo "${t}"$( textcolor '5 ----' 5 ) 'magenta'
-	echo "${t}"$( textcolor '6 ----' 6 ) 'cyan (default)'
-	echo "${t}"'7 ---- white'
+	echo "${t}"'0      0 black'
+	echo "${t}"$( textcolor 1 7 1 ) $( textcolor '---- 1' 1 ) 'red'
+	echo "${t}"$( textcolor 2 0 2 ) $( textcolor '---- 2' 2 ) 'green'
+	echo "${t}"$( textcolor 3 0 3 ) $( textcolor '---- 3' 3 ) 'yellow'
+	echo "${t}"$( textcolor 4 7 4 ) $( textcolor '---- 4' 4 ) 'blue'
+	echo "${t}"$( textcolor 5 7 5 ) $( textcolor '---- 5' 5 ) 'magenta'
+	echo "${t}"$( textcolor 6 0 6 ) $( textcolor '---- 6' 6 ) 'cyan'
+	echo "${t}"$( textcolor 7 0 7 ) '---- 7 white'
 	linecolor -
 }	
 
