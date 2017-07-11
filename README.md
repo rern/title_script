@@ -17,11 +17,11 @@ inline command:  $( textcolor STRING [color] [background] )
 
 STRING:          quoted or unquote strings, variables (same as 'echo')
 CHARACTER:       single character for lines
-OPTION:   -?     help (this)
-          -c N   N - line color
+OPTION:   -c N   N - line color
           -l C   C - line character
           -nt    no top line
           -nb    no bottom line
+          -?, -h this info
 Color:           code for [color], [background], N
           0 ---- black
           1 ---- red
