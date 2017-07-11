@@ -65,11 +65,11 @@ usage() {
 	echo
 	echo 'STRING:          quoted or unquote strings, variables (same as 'echo')'
 	echo 'CHARACTER:       single character for lines'
-	echo 'OPTION:   -?, -h this info'
-	echo "${t}"'-c N   N - line color'
+	echo 'OPTION:   -c N   N - line color'
 	echo "${t}"'-l C   C - line character'
 	echo "${t}"'-nt    no top line'
 	echo "${t}"'-nb    no bottom line'   
+	echo "${t}"'-?, -h this info'
 	echo 'Color:           code for [color], [background], N:'
 	echo "${t}"'0      0 black'
 	echo "${t}"$( textcolor 1 7 1 ) $( textcolor '---- 1' 1 ) 'red'
