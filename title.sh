@@ -63,7 +63,7 @@ usage() {
 	echo
 	echo 'inline command:  $( textcolor STRING [color] [background] )'
 	echo
-	echo 'STRING:          quoted or unquote strings, variables (same as 'echo')
+	echo 'STRING:          quoted or unquote strings, variables (same as 'echo')'
 	echo 'CHARACTER:       single character for lines'
 	echo 'OPTION:   -?, -h  this info'
 	echo "${t}"'-c N   N - line color'
