@@ -30,12 +30,12 @@ title() {
 	
 	while :; do
 		case $1 in
-			-h|-\?|--help) usage; exit 1;;
+			-h|-\?|--help) usage; return 0;;
 			-c) local color=$2; shift;; # 1st shift
 			-l) local line=$2; shift;;
 			-nt) local notop=1;;        # no 'shift' for option without vale
 			-nb) local nobottom=1;;
-			-?*) printf 'WARN: unknown option: %s\n' "$1" >&2;;
+			-?*) printf 'WARN: unknown option: %s\n' "$1" >&2; return 0;;
 			*) break
 		esac
 		# shift 1 out of argument array '$@'
