@@ -2,7 +2,7 @@
 
 # Draw colored string with top-bottom lines
 
-linecolor() {
+lcolor() {
 	if [[ -z $2 ]] || (( $2 > 6 )); then
 		local color='\e[0;36m%*s\e[m\n'
 	else
@@ -10,7 +10,7 @@ linecolor() {
 	fi
 	printf $color "${COLUMNS:-$(tput cols)}" '' | tr ' ' "$1"
 }
-textcolor() { 
+tcolor() { 
 	local color=6   # default
 	local back=0  # default
 	[[ $2 ]] && local color=$2
@@ -18,9 +18,9 @@ textcolor() {
 	echo "$(tput setaf $color; tput setab $back)${1}$(tput setaf 7; tput setab 0)"
 }
 
-bar=$( textcolor ' . ' 6 6 )   # [   ]     (white on cyan)    - double quoted to keep spaces
-info=$( textcolor ' i ' 0 3 )  # [ i ]     (black on yellow)
-warn=$( textcolor ' ! ' 7 1 )  # [ ! ]     (white on red)
+bar=$( tcolor ' . ' 6 6 )   # [   ]     (white on cyan)    - double quoted to keep spaces
+info=$( tcolor ' i ' 0 3 )  # [ i ]     (black on yellow)
+warn=$( tcolor ' ! ' 7 1 )  # [ ! ]     (white on red)
 
 title() {
 	local ctop=6
@@ -51,7 +51,7 @@ title() {
 			-h|-\?|--help) usage
 				return 0;;
 			-?*) echo "$info unknown option: $1"
-				echo $( textcolor 'title -h' 3 ) for information
+				echo $( tcolor 'title -h' 3 ) for information
 				echo
 				return 0;;
 			*) break
@@ -62,24 +62,24 @@ title() {
 		shift
 	done
 
-	[[ $notop == 0 ]] && echo $( linecolor $ltop $ctop )
+	[[ $notop == 0 ]] && echo $( lcolor $ltop $ctop )
 	echo -e "${@}" # $@ > "${@}" - preserve spaces 
-	[[ $nobottom == 0 ]] && echo $( linecolor $lbottom $cbottom )
+	[[ $nobottom == 0 ]] && echo $( lcolor $lbottom $cbottom )
 }
 usage() {
 	local t='          '
 	echo
-	linecolor -
-	echo $bar 'Draw title with colored' $( textcolor STRING ) 'and top-bottom lines'
-	linecolor -
+	lcolor -
+	echo $bar 'Draw title with colored' $( tcolor STRING ) 'and top-bottom lines'
+	lcolor -
 	echo '         usage:  place this file in the same directory'
-	echo '                 type command or add this line to script:' $( textcolor '. title.sh' )
+	echo '                 type command or add this line to script:' $( tcolor '. title.sh' )
 	echo
 	echo '       command:  title [OPTION]... STRING'
-	echo '                 linecolor CHARACTER [color]'
-	echo '                 textcolor STRING [color]'
+	echo '                 lcolor CHARACTER [color]'
+	echo '                 tcolor STRING [color]'
 	echo
-	echo 'inline command:  $( textcolor STRING [color] [background] )'
+	echo 'inline command:  $( tcolor STRING [color] [background] )'
 	echo
 	echo 'STRING:          quoted or unquote strings, variables (same as "echo")'
 	echo 'CHARACTER:       single character for lines'
@@ -94,18 +94,18 @@ usage() {
 	echo "${t}"'-?, -h this info'
 	echo 'Color:           code for [color], [background], N:'
 	echo "${t}" '0     0 black'
-	echo "${t}" $( textcolor 1 7 1 ) $( textcolor '--- 1' 1 ) 'red'
-	echo "${t}" $( textcolor 2 0 2 ) $( textcolor '--- 2' 2 ) 'green'
-	echo "${t}" $( textcolor 3 0 3 ) $( textcolor '--- 3' 3 ) 'yellow'
-	echo "${t}" $( textcolor 4 7 4 ) $( textcolor '--- 4' 4 ) 'blue'
-	echo "${t}" $( textcolor 5 7 5 ) $( textcolor '--- 5' 5 ) 'magenta'
-	echo "${t}" $( textcolor 6 0 6 ) $( textcolor '--- 6' 6 ) 'cyan (default)'
-	echo "${t}" $( textcolor 7 0 7 ) '--- 7 white'
+	echo "${t}" $( tcolor 1 7 1 ) $( tcolor '--- 1' 1 ) 'red'
+	echo "${t}" $( tcolor 2 0 2 ) $( tcolor '--- 2' 2 ) 'green'
+	echo "${t}" $( tcolor 3 0 3 ) $( tcolor '--- 3' 3 ) 'yellow'
+	echo "${t}" $( tcolor 4 7 4 ) $( tcolor '--- 4' 4 ) 'blue'
+	echo "${t}" $( tcolor 5 7 5 ) $( tcolor '--- 5' 5 ) 'magenta'
+	echo "${t}" $( tcolor 6 0 6 ) $( tcolor '--- 6' 6 ) 'cyan (default)'
+	echo "${t}" $( tcolor 7 0 7 ) '--- 7 white'
 	echo 'Badge:           built-in variables'
 	echo "${t}"$bar'    $bar'   
 	echo "${t}"$info'    $info'   
 	echo "${t}"$warn'    $warn'
-	linecolor -
+	lcolor -
 }
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
