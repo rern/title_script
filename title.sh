@@ -65,7 +65,7 @@ usage() {
 	echo
 	echo 'STRING:          quoted or unquote strings, variables (same as 'echo')'
 	echo 'CHARACTER:       single character for lines'
-	echo 'OPTION:   -?, -h  this info'
+	echo 'OPTION:   -?, -h this info'
 	echo "${t}"'-c N   N - line color'
 	echo "${t}"'-l C   C - line character'
 	echo "${t}"'-nt    no top line'
