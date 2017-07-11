@@ -15,7 +15,7 @@ BASH script for drawing colored string with top-bottom lines
               
 inline command:  $( textcolor STRING [color] [background] )
 
-STRING:          quoted or unquote strings, variables (as of 'echo')
+STRING:          quoted or unquote strings, variables (same as 'echo')
 CHARACTER:       single character for lines
 OPTION:   -?     help (this)
           -c N   N - line color
