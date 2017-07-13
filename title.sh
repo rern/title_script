@@ -77,11 +77,11 @@ usage() {
 	echo
 	echo '       command:  title [OPTION]... STRING'
 	echo '                 lcolor CHARACTER [color]'
-	echo '                 tcolor STRING [color]'
+	echo '                 tcolor "STRING" [color] [background]'
 	echo
-	echo 'inline command:  $( tcolor STRING [color] [background] )'
+	echo 'inline command:  $( tcolor "STRING" [color] [background] )'
 	echo
-	echo 'STRING:          quoted or unquote strings, variables (same as "echo")'
+	echo 'STRING:          string or variables'
 	echo 'CHARACTER:       single character for lines'
 	echo 'OPTION:   -c N   N - color: line'
 	echo "${t}"'-ct N  N - color: line-top'
