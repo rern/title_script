@@ -9,10 +9,12 @@ BASH script for drawing colored string with top-bottom lines
          usage:  place 'title.sh' file in the same directory
                  type command or add this line to script: . title.sh
                  
-       command:  title [OPTION]... STRING
-              :  lcolor 'CHARACTER' [color]
-              :  tcolor "STRING" [color] [background]
-              
+         title:  title [OPTION]... STRING
+
+  colored line:  lcolor 'CHARACTER' [color]
+  colored text:  tcolor "STRING" [color] [background]
+   color chart:  colorchart
+
 inline command:  $( tcolor "STRING" [color] [background] )
 
 STRING:          string or variables
