@@ -11,11 +11,11 @@ BASH script for drawing colored string with top-bottom lines
                  
        command:  title [OPTION]... STRING
               :  lcolor CHARACTER [color]
-              :  tcolor STRING [color] [background]
+              :  tcolor "STRING" [color] [background]
               
 inline command:  $( tcolor STRING [color] [background] )
 
-STRING:          quoted or unquote strings, variables (same as 'echo')
+STRING:          string or variables
 CHARACTER:       single character for lines
 OPTION:   -c N   N - color: line
           -ct N  N - color: line-top
