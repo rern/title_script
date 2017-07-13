@@ -75,9 +75,11 @@ usage() {
 	echo '         usage:  place this file in the same directory'
 	echo '                 type command or add this line to script:' $( tcolor '. title.sh' )
 	echo
-	echo '       command:  title [OPTION]... STRING'
-	echo '                 lcolor' "'"CHARACTER"'" '[color]'
-	echo '                 tcolor "STRING" [color] [background]'
+	echo '         title:  title [OPTION]... STRING'
+	echo
+	echo '  colored line:  lcolor' "'"CHARACTER"'" '[color]'
+	echo '  colored text:  tcolor "STRING" [color] [background]'
+	echo '   color chart:  printcolor'
 	echo
 	echo 'inline command:  $( tcolor "STRING" [color] [background] )'
 	echo
@@ -109,7 +111,7 @@ usage() {
 }
 printcolor() {
 	for i in {0..255} ; do
-	    printf "\x1b[48;5;%sm%3d\e[0m " "$i" "$i"
+	    printf "\e[48;5;%sm%3d\e[0m " "$i" "$i"
 	    if (( i == 15 )) || (( i > 15 )) && (( (i-15) % 6 == 0 )); then
 		printf "\n";
 	    fi
