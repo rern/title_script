@@ -76,7 +76,7 @@ usage() {
 	echo '                 type command or add this line to script:' $( tcolor '. title.sh' )
 	echo
 	echo '       command:  title [OPTION]... STRING'
-	echo '                 lcolor CHARACTER [color]'
+	echo '                 lcolor \'CHARACTER\' [color]'
 	echo '                 tcolor "STRING" [color] [background]'
 	echo
 	echo 'inline command:  $( tcolor "STRING" [color] [background] )'
