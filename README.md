@@ -13,7 +13,7 @@ BASH script for drawing colored string with top-bottom lines
               :  lcolor 'CHARACTER' [color]
               :  tcolor "STRING" [color] [background]
               
-inline command:  $( tcolor STRING [color] [background] )
+inline command:  $( tcolor "STRING" [color] [background] )
 
 STRING:          string or variables
 CHARACTER:       single character for lines
