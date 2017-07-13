@@ -3,19 +3,16 @@
 # Draw colored string with top-bottom lines
 
 lcolor() {
-	if [[ -z $2 ]] || (( $2 > 6 )); then
-		local color='\e[0;36m%*s\e[m\n'
-	else
-		local color='\e[0;3'$2'm%*s\e[m\n'
-	fi
-	printf $color "${COLUMNS:-$(tput cols)}" '' | tr ' ' "$1"
+	local color=6
+	[[ $2 ]] && local color=$2
+	printf "\e[38;5;${color}m%*s\e[0m\n" "${COLUMNS:-$(tput cols)}" '' | tr ' ' "$1"
 }
 tcolor() { 
 	local color=6   # default
 	local back=0  # default
 	[[ $2 ]] && local color=$2
 	[[ $3 ]] && local back=$3
-	echo "$(tput setaf $color; tput setab $back)${1}$(tput setaf 7; tput setab 0)"
+	echo -e "\e[38;5;${color}m\e[48;5;${back}m${1}\e[0m"
 }
 
 bar=$( tcolor ' . ' 6 6 )   # [   ]     (white on cyan)    - double quoted to keep spaces
