@@ -10,7 +10,7 @@ BASH script for drawing colored string with top-bottom lines
                  type command or add this line to script: . title.sh
                  
        command:  title [OPTION]... STRING
-              :  lcolor CHARACTER [color]
+              :  lcolor 'CHARACTER' [color]
               :  tcolor "STRING" [color] [background]
               
 inline command:  $( tcolor STRING [color] [background] )
