@@ -110,7 +110,7 @@ colorchart() {
 	echo
 		for i in {0..255}; do
 			code=$( printf %03d $i )
-			printf "\e[48;5;${i}m   \e[0m \e[38;5;${i}m$code\e[0m  "
+			printf "\e[48;5;${i}m  \e[0m \e[38;5;${i}m$code\e[0m  "
 			(( i == 7 )) || (( i == 243 )) || (( i == 255 )) && echo
 			( (( i == 15 )) || (( i > 15 )) && (( i < 232 )) && (( (i-15) % 6 == 0 )) ) && echo
 		done
