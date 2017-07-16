@@ -247,6 +247,12 @@ sx4='     '
 sx5='  #  '
 
 banner() {
+	color=7
+	if [[ $1 == '-c' ]]; then
+		color=$2
+		shift
+		shift
+	fi
 	string=$@
 	# string to array
 	for (( i=0 ; i < ${#string} ; i++ )); do
@@ -277,9 +283,10 @@ banner() {
 	done
 	
 	# output
-	echo "$l1"
-	echo "$l2"
-	echo "$l3"
-	echo "$l4"
-	echo "$l5"
+	echo -e "\e[38;5;${color}m$l1\e[0m"
+	echo -e "\e[38;5;${color}m$l2\e[0m"
+	echo -e "\e[38;5;${color}m$l3\e[0m"
+	echo -e "\e[38;5;${color}m$l4\e[0m"
+	echo -e "\e[38;5;${color}m$l5\e[0m"
 }
+
