@@ -28,7 +28,7 @@ OPTION:   -c N   N - color: line
           -nt    no line:   top
           -nb    no line:   bottom
           -?, -h this info
-Color:           code for [color], [background], N
+Color:           code for N, [color], [background]
           0 ---- black
           1 ---- red
           2 ---- green
