@@ -1,6 +1,55 @@
 #!/bin/bash
 
-# Draw colored string with top-bottom lines
+### title.sh
+#
+### Draw colored string with top-bottom lines ###
+# by rern
+
+usage() {
+	local t='          '
+	echo
+	lcolor -
+	echo $bar 'Draw title with colored' $( tcolor STRING ) 'and top-bottom lines'
+	lcolor -
+	echo "
+         usage:  place this file in the same directory
+                 $( tcolor '. title.sh' ) type command or add this line to script
+
+         title:  title [OPTION]... STRING
+
+  colored line:  lcolor \"CHARACTER\" [color]
+  colored text:  tcolor \"STRING\" [color] [background]
+   color chart:  colorchart
+
+inline command:  \$( tcolor \"STRING\" [color] [background] )
+
+STRING:          string or variables
+CHARACTER:       single character for lines
+OPTION:   -c N   N - color: line
+${t}-ct N  N - color: line-top
+${t}-cb N  N - color: line-bottom
+${t}-l C   C - line:  character
+${t}-lt C  C - line:  character-top
+${t}-lb C  C - line:  character-bottom
+${t}-nt    no line:   top
+${t}-nb    no line:   bottom  
+${t}-?, -h this info
+Color:           code for N, [color], [background]
+${t} 0     0 black
+${t} $( tcolor 1 7 1 ) $( tcolor '--- 1' 1 ) red
+${t} $( tcolor 2 0 2 ) $( tcolor '--- 2' 2 ) green
+${t} $( tcolor 3 0 3 ) $( tcolor '--- 3' 3 ) yellow
+${t} $( tcolor 4 7 4 ) $( tcolor '--- 4' 4 ) blue
+${t} $( tcolor 5 7 5 ) $( tcolor '--- 5' 5 ) magenta
+${t} $( tcolor 6 0 6 ) $( tcolor '--- 6' 6 ) cyan (default)
+${t} $( tcolor 7 0 7 ) --- 7 white
+Badge:           built-in variables
+${t}$bar    \$bar
+${t}$info    \$info
+${t}$warn    \$warn
+"
+	lcolor -
+}
 
 lcolor() {
 	local color=6
@@ -62,49 +111,6 @@ title() {
 	[[ $notop == 0 ]] && echo $( lcolor $ltop $ctop )
 	echo -e "${@}" # $@ > "${@}" - preserve spaces 
 	[[ $nobottom == 0 ]] && echo $( lcolor $lbottom $cbottom )
-}
-usage() {
-	local t='          '
-	echo
-	lcolor -
-	echo $bar 'Draw title with colored' $( tcolor STRING ) 'and top-bottom lines'
-	lcolor -
-	echo '         usage:  place this file in the same directory'
-	echo '                 type command or add this line to script:' $( tcolor '. title.sh' )
-	echo
-	echo '         title:  title [OPTION]... STRING'
-	echo
-	echo '  colored line:  lcolor' "'"CHARACTER"'" '[color]'
-	echo '  colored text:  tcolor "STRING" [color] [background]'
-	echo '   color chart:  colorchart'
-	echo
-	echo 'inline command:  $( tcolor "STRING" [color] [background] )'
-	echo
-	echo 'STRING:          string or variables'
-	echo 'CHARACTER:       single character for lines'
-	echo 'OPTION:   -c N   N - color: line'
-	echo "${t}"'-ct N  N - color: line-top'
-	echo "${t}"'-cb N  N - color: line-bottom'
-	echo "${t}"'-l C   C - line:  character'
-	echo "${t}"'-lt C  C - line:  character-top'
-	echo "${t}"'-lb C  C - line:  character-bottom'
-	echo "${t}"'-nt    no line:   top'
-	echo "${t}"'-nb    no line:   bottom'   
-	echo "${t}"'-?, -h this info'
-	echo 'Color:           code for [color], [background], N:'
-	echo "${t}" '0     0 black'
-	echo "${t}" $( tcolor 1 7 1 ) $( tcolor '--- 1' 1 ) 'red'
-	echo "${t}" $( tcolor 2 0 2 ) $( tcolor '--- 2' 2 ) 'green'
-	echo "${t}" $( tcolor 3 0 3 ) $( tcolor '--- 3' 3 ) 'yellow'
-	echo "${t}" $( tcolor 4 7 4 ) $( tcolor '--- 4' 4 ) 'blue'
-	echo "${t}" $( tcolor 5 7 5 ) $( tcolor '--- 5' 5 ) 'magenta'
-	echo "${t}" $( tcolor 6 0 6 ) $( tcolor '--- 6' 6 ) 'cyan (default)'
-	echo "${t}" $( tcolor 7 0 7 ) '--- 7 white'
-	echo 'Badge:           built-in variables'
-	echo "${t}"$bar'    $bar'   
-	echo "${t}"$info'    $info'   
-	echo "${t}"$warn'    $warn'
-	lcolor -
 }
 colorchart() {
 	echo
