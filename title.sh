@@ -12,16 +12,16 @@ usage() {
 	echo $bar 'Draw title with colored' $( tcolor STRING ) 'and top-bottom lines'
 	lcolor -
 	echo "
-         usage:  place this file in the same directory
+         howto:  place this file in the same directory
                  $( tcolor '. title.sh' ) type command or add this line to script
 
-         title:  title [OPTION]... STRING
+         usage:  title [OPTION]... STRING
 
-  colored line:  lcolor \"CHARACTER\" [color]
-  colored text:  tcolor \"STRING\" [color] [background]
+  colored line:  lcolor \"CHARACTER\" [COLOR]
+  colored text:  tcolor \"STRING\" [COLOR] [BACKGROUND]
    color chart:  colorchart
 
-inline command:  \$( tcolor \"STRING\" [color] [background] )
+inline command:  \$( tcolor \"STRING\" [COLOR] [BACKGROUND] )
 
 STRING:          string or variables
 CHARACTER:       single character for lines
@@ -34,7 +34,8 @@ ${t}-lb C  C - line:  character-bottom
 ${t}-nt    no line:   top
 ${t}-nb    no line:   bottom  
 ${t}-?, -h this info
-Color:           code for N, [color], [background]
+
+Color:           code for N, COLOR, BACKGROUND
 ${t} 0     0 black
 ${t} $( tcolor 1 7 1 ) $( tcolor '--- 1' 1 ) red
 ${t} $( tcolor 2 0 2 ) $( tcolor '--- 2' 2 ) green
