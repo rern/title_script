@@ -54,14 +54,13 @@ ${t}$warn    \$warn
 
 lcolor() {
 	local color=6
-	[[ $2 ]] && local color=$2
+	[[ $2 ]] && color=$2
 	printf "\e[38;5;${color}m%*s\e[0m\n" "${COLUMNS:-$(tput cols)}" '' | tr ' ' "$1"
 }
 tcolor() { 
-	local color=6   # default
-	local back=0  # default
-	[[ $2 ]] && local color=$2
-	[[ $3 ]] && local back=$3
+	local color=6 back=0  # default
+	[[ $2 ]] && color=$2
+	[[ $3 ]] && back=$3
 	echo -e "\e[38;5;${color}m\e[48;5;${back}m${1}\e[0m"
 }
 
@@ -79,22 +78,22 @@ title() {
 	
 	while :; do
 		case $1 in
-			-c) local ctop=$2
-				local cbottom=$2
+			-c) ctop=$2
+				cbottom=$2
 				shift;; # 1st shift
-			-ct) local ctop=$2
+			-ct) ctop=$2
 				shift;;
-			-cb) local cbottom=$2
+			-cb) cbottom=$2
 				shift;;
-			-l) local ltop=$2
-				local lbottom=$2
+			-l) ltop=$2
+				lbottom=$2
 				shift;;
-			-lt) local ltop=$2
+			-lt) ltop=$2
 				shift;;
-			-lb) local lbottom=$2
+			-lb) lbottom=$2
 				shift;;
-			-nt) local notop=1;;        # no 'shift' for option without vale
-			-nb) local nobottom=1;;
+			-nt) notop=1;;        # no 'shift' for option without vale
+			-nb) nobottom=1;;
 			-h|-\?|--help) usage
 				return 0;;
 			-?*) echo "$info unknown option: $1"
@@ -116,7 +115,7 @@ title() {
 colorchart() {
 	echo
 		for i in {0..255}; do
-			code=$( printf %03d $i )
+			local code=$( printf %03d $i )
 			printf "\e[48;5;${i}m  \e[0m \e[38;5;${i}m$code\e[0m  "
 			(( i == 7 )) || (( i == 243 )) || (( i == 255 )) && echo
 			( (( i == 15 )) || (( i > 15 )) && (( i < 232 )) && (( (i-15) % 6 == 0 )) ) && echo
