@@ -129,7 +129,7 @@ yesno() {
 	echo -e '  \e[0;36m1\e[m Yes'
 	echo
 	echo -e '\e[0;36m0\e[m / 1 ? '
-	read -n 1 ans
+	read -n 1 $2
 	echo
 }
 
