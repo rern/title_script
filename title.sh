@@ -123,4 +123,14 @@ colorchart() {
 	echo
 }
 
+yesno() {
+	echo
+	echo "$1"
+	echo -e '  \e[0;36m0\e[m No'
+	echo -e '  \e[0;36m1\e[m Yes'
+	echo
+	echo -e '\e[0;36m0\e[m / 1 ? '
+	read -n 1 ans
+}
+
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
