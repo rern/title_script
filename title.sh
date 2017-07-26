@@ -145,5 +145,15 @@ setpwd() {
 		setpwd
 	fi
 }
+timestart() {
+	time0=$( date +%s )
+}
+timestop() {
+	time1=$( date +%s )
+	timediff=$(( $time1 - $time0 ))
+	timemin=$(( $timediff / 60 ))
+	timesec=$(( $timediff % 60 ))
+	echo -e "\nDuration: $timemin min $timesec sec"
+}
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
