@@ -132,5 +132,18 @@ yesno() { # $1 = header string; $2 = input or <enter> = ''
 	read -n 1 $2
 	echo
 }
+setpwd() {
+	title $info Password: "
+	read -s pwd1
+	echo
+	echo 'Retype password: '
+	read -s pwd2
+	echo
+	if [[ $pwd1 != $pwd2 ]]; then
+		echo
+		echo "$info Passwords not matched. Try again."
+		setpwd
+	fi
+}
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
