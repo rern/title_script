@@ -146,11 +146,11 @@ setpwd() {
 	fi
 }
 timestart() {
-	time0=$( date +%s )
+	[[ $# -eq 0 ]] && time0=$( date +%s ) || timelapse0=$( date +%s )
 }
 timestop() {
 	time1=$( date +%s )
-	timediff=$(( $time1 - $time0 ))
+	[[ $# -eq 0 ]] && timediff=$(( $time1 - $time0 )) || timediff=$(( $time1 - $timelapse0 ))
 	timemin=$(( $timediff / 60 ))
 	timesec=$(( $timediff % 60 ))
 	echo -e "\nDuration: $timemin min $timesec sec"
