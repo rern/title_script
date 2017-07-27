@@ -132,7 +132,7 @@ yesno() { # $1 = header string; $2 = input or <enter> = ''
 	read -n 1 $2
 	echo
 }
-setpwd() {
+setpwd() { # return $pwd1
 	title "$info Password: "
 	read -s pwd1
 	echo
@@ -145,15 +145,17 @@ setpwd() {
 		setpwd
 	fi
 }
-timestart() {
+timestart() { # timelapse: any argument
+	local time0 timelapse
 	time0=$( date +%s )
 	[[ $# -ne 0 ]] && timelapse0=$( date +%s )
 }
-timestop() {
+timestop() { # timelapse: any argument
+	local time1 timediff stringlapse timemin timesec
 	time1=$( date +%s )
 	if [[ $# -eq 0 ]]; then
 		timediff=$(( $time1 - $time0 ))
-		lapsetxt=''
+		stringlapse=''
 	else
 		timediff=$(( $time1 - $timelapse0 ))
 		stringlapse=' (timelapse)'
