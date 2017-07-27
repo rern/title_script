@@ -146,19 +146,17 @@ setpwd() {
 	fi
 }
 timestart() {
-	if [[ $# -eq 0 ]]; then
-		time0=$( date +%s )
-	else
-		timelapse0=$( date +%s )
-	fi
+	time0=$( date +%s )
+	[[ $# -ne 0 ]] && timelapse0=$( date +%s )
 }
 timestop() {
 	time1=$( date +%s )
 	if [[ $# -eq 0 ]]; then
 		timediff=$(( $time1 - $time0 ))
+		lapsetxt=''
 	else
 		timediff=$(( $time1 - $timelapse0 ))
-		lapsetxt=' (timelapse)
+		lapsetxt=' (timelapse)'
 	fi
 	timemin=$(( $timediff / 60 ))
 	timesec=$(( $timediff % 60 ))
