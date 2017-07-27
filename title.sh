@@ -156,11 +156,11 @@ timestop() {
 		lapsetxt=''
 	else
 		timediff=$(( $time1 - $timelapse0 ))
-		lapsetxt=' (timelapse)'
+		stringlapse=' (timelapse)'
 	fi
 	timemin=$(( $timediff / 60 ))
 	timesec=$(( $timediff % 60 ))
-	echo -e "\nDuration$lapsetxt: $timemin min $timesec sec"
+	echo -e "\nDuration$stringlapse: $timemin min $timesec sec"
 }
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
