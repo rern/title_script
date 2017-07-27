@@ -146,14 +146,23 @@ setpwd() {
 	fi
 }
 timestart() {
-	[[ $# -eq 0 ]] && time0=$( date +%s ) || timelapse0=$( date +%s )
+	if [[ $# -eq 0 ]]; then
+		time0=$( date +%s )
+	else
+		timelapse0=$( date +%s )
+	fi
 }
 timestop() {
 	time1=$( date +%s )
-	[[ $# -eq 0 ]] && timediff=$(( $time1 - $time0 )) || timediff=$(( $time1 - $timelapse0 ))
+	if [[ $# -eq 0 ]]; then
+		timediff=$(( $time1 - $time0 ))
+	else
+		timediff=$(( $time1 - $timelapse0 ))
+		lapsetxt=' (timelapse)
+	fi
 	timemin=$(( $timediff / 60 ))
 	timesec=$(( $timediff % 60 ))
-	echo -e "\nDuration: $timemin min $timesec sec"
+	echo -e "\nDuration$lapsetxt: $timemin min $timesec sec"
 }
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
