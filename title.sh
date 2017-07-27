@@ -146,12 +146,10 @@ setpwd() { # return $pwd1
 	fi
 }
 timestart() { # timelapse: any argument
-	local time0 timelapse
 	time0=$( date +%s )
 	[[ $# -ne 0 ]] && timelapse0=$( date +%s )
 }
 timestop() { # timelapse: any argument
-	local time1 timediff stringlapse timemin timesec
 	time1=$( date +%s )
 	if [[ $# -eq 0 ]]; then
 		timediff=$(( $time1 - $time0 ))
