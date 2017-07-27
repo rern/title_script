@@ -1,7 +1,11 @@
 title.sh script
 ---
 
-BASH script for drawing colored string with top-bottom lines  
+For installation script (BASH)  
+- drawing colored string with top-bottom lines
+- password dialog
+- confirm yes/no dialog
+- timer
 
 ![screen](https://github.com/rern/title_script/blob/master/title.png)
 
