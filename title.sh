@@ -133,7 +133,7 @@ yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo
 }
 setpwd() { # return $pwd1
-	title "$info Password: "
+	echo -e "$info Password: "
 	read -s pwd1
 	echo
 	echo 'Retype password: '
