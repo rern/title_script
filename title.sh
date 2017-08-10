@@ -152,15 +152,17 @@ timestart() { # timelapse: any argument
 timestop() { # timelapse: any argument
 	time1=$( date +%s )
 	if [[ $# -eq 0 ]]; then
-		timediff=$(( $time1 - $time0 ))
+		dif=$(( $time1 - $time0 ))
 		stringlapse=''
 	else
-		timediff=$(( $time1 - $timelapse0 ))
+		dif=$(( $time1 - $timelapse0 ))
 		stringlapse=' (timelapse)'
 	fi
-	timemin=$(( $timediff / 60 ))
-	timesec=$(( $timediff % 60 ))
-	echo -e "\nDuration$stringlapse: $timemin min $timesec sec"
+	min=$(( $dif / 60 ))
+	(( ${#min} == 1 )) && min=0$min
+	sec=$(( $dif % 60 ))
+	(( ${#sec} == 1 )) && sec=0$sec
+	echo -e "\nDuration$stringlapse ${min}:$sec"
 }
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
