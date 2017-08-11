@@ -2,7 +2,8 @@
 
 ### title.sh
 #
-### Draw colored string with top-bottom lines ###
+### colored string with top-bottom lining for installation script ###
+# with yes/no, password dialog
 # by rern
 
 usage() {
@@ -20,6 +21,9 @@ usage() {
   colored line:  lcolor \"CHARACTER\" [COLOR]
   colored text:  tcolor \"STRING\" [COLOR] [BACKGROUND]
    color chart:  colorchart
+   
+        yes/no:  yesno \"STRING\" [VARIABLE]
+      password:  setpwd [VARIABLE]
 
 inline command:  \$( tcolor \"STRING\" [COLOR] [BACKGROUND] )
 
@@ -125,17 +129,19 @@ colorchart() {
 	echo
 }
 
-yesno() { # $1: header string; $2 : input or <enter> = ''; $3 : omit badge 
-	[[ -z $3 ]] && echo -e "$yn $1" || echo -e "$1"
+yesno() { # $1: header string; $2 : optional assigned variable (default - answer)
+	echo
+	echo -e "$yn $1"
 	echo -e '  \e[36m0\e[m No'
 	echo -e '  \e[36m1\e[m Yes'
 	echo
 	echo -e '\e[36m0\e[m / 1 ? '
-	read -n 1 $2
+	[[ -z $2 ]] && read -n 1 answer || read -n 1 $2
 	echo
 }
-setpwd() { # return $pwd1
-	echo -e "\n$yn Password: "
+setpwd() { #1 : optional assigned variable (default - pwd1)
+	echo
+	echo -e "$yn Password: "
 	read -s pwd1
 	echo
 	echo 'Retype password: '
@@ -146,7 +152,9 @@ setpwd() { # return $pwd1
 		echo "$info Passwords not matched. Try again."
 		setpwd
 	fi
+	[[ -n $1 ]] && eval $1=$pwd1
 }
+
 timestart() { # timelapse: any argument
 	time0=$( date +%s )
 	[[ $# -ne 0 ]] && timelapse0=$( date +%s )
