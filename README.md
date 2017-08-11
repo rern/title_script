@@ -3,8 +3,8 @@ title.sh script
 
 For installation script (BASH)  
 - drawing colored string with top-bottom lines
+- yes/no dialog
 - password dialog
-- confirm yes/no dialog
 - timer
 
 ![screen](https://github.com/rern/title_script/blob/master/title.png)
@@ -17,9 +17,11 @@ For installation script (BASH)
 
   colored line:  lcolor 'CHARACTER' [color]
   colored text:  tcolor "STRING" [color] [background]
+inline command:  $( tcolor "STRING" [color] [background] )
    color chart:  colorchart
 
-inline command:  $( tcolor "STRING" [color] [background] )
+        yes/no:  yesno "STRING" [VARNAME]
+      password:  setpwd [VARNAME]
 
 STRING:          string or variables
 CHARACTER:       single character for lines
