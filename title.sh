@@ -22,8 +22,8 @@ usage() {
   colored text:  tcolor \"STRING\" [COLOR] [BACKGROUND]
    color chart:  colorchart
    
-        yes/no:  yesno \"STRING\" [VARIABLE]
-      password:  setpwd [VARIABLE]
+        yes/no:  yesno \"STRING\" [VARNAME]
+      password:  setpwd [VARNAME]
 
 inline command:  \$( tcolor \"STRING\" [COLOR] [BACKGROUND] )
 
