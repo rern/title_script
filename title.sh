@@ -129,17 +129,18 @@ colorchart() {
 	echo
 }
 
-yesno() { # $1: header string; $2 : optional assigned variable (default - answer)
+yesno() { # $1: header string; $2 : optional return variable (default - answer)
 	echo
 	echo -e "$yn $1"
 	echo -e '  \e[36m0\e[m No'
 	echo -e '  \e[36m1\e[m Yes'
 	echo
 	echo -e '\e[36m0\e[m / 1 ? '
-	[[ -z $2 ]] && read -n 1 answer || read -n 1 $2
+	read -n 1 answer
 	echo
+	[[ -n $2 ]] && eval $2=$answer
 }
-setpwd() { #1 : optional assigned variable (default - pwd1)
+setpwd() { #1 : optional return variable (default - pwd1)
 	echo
 	echo -e "$yn Password: "
 	read -s pwd1
