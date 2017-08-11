@@ -45,9 +45,10 @@ ${t} $( tcolor 5 7 5 ) $( tcolor '--- 5' 5 ) magenta
 ${t} $( tcolor 6 0 6 ) $( tcolor '--- 6' 6 ) cyan (default)
 ${t} $( tcolor 7 0 7 ) --- 7 white
 Badge:           built-in variables
-${t}$bar    \$bar
-${t}$info    \$info
-${t}$warn    \$warn
+${t}$bar    $bar
+${t}$info   $info
+${t}$yn     $yn
+${t}$warn   $warn
 "
 	lcolor -
 }
@@ -66,6 +67,7 @@ tcolor() {
 
 bar=$( tcolor ' . ' 6 6 )   # [   ]     (white on cyan)
 info=$( tcolor ' i ' 0 3 )  # [ i ]     (black on yellow)
+yn=$( tcolor ' ? ' 0 3 )  # [ i ]       (black on yellow)
 warn=$( tcolor ' ! ' 7 1 )  # [ ! ]     (white on red)
 
 title() {
@@ -123,17 +125,17 @@ colorchart() {
 	echo
 }
 
-yesno() { # $1 = header string; $2 = input or <enter> = ''
-	echo -e "$1"
-	echo -e '  \e[0;36m0\e[m No'
-	echo -e '  \e[0;36m1\e[m Yes'
+yesno() { # $1: header string; $2 : input or <enter> = ''; $3 : omit badge 
+	[[ -z $3 ]] && echo -e "$yn $1" || echo -e "$1"
+	echo -e '  \e[36m0\e[m No'
+	echo -e '  \e[36m1\e[m Yes'
 	echo
-	echo -e '\e[0;36m0\e[m / 1 ? '
+	echo -e '\e[36m0\e[m / 1 ? '
 	read -n 1 $2
 	echo
 }
 setpwd() { # return $pwd1
-	echo -e "\n$info Password: "
+	echo -e "\n$yn Password: "
 	read -s pwd1
 	echo
 	echo 'Retype password: '
