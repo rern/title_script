@@ -20,12 +20,11 @@ usage() {
 
   colored line:  lcolor \"CHARACTER\" [COLOR]
   colored text:  tcolor \"STRING\" [COLOR] [BACKGROUND]
+inline command:  \$( tcolor \"STRING\" [COLOR] [BACKGROUND] )
    color chart:  colorchart
    
         yes/no:  yesno \"STRING\" [VARNAME]
       password:  setpwd [VARNAME]
-
-inline command:  \$( tcolor \"STRING\" [COLOR] [BACKGROUND] )
 
 STRING:          string or variables
 CHARACTER:       single character for lines
