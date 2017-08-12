@@ -137,7 +137,7 @@ yesno() { # $1: header string; $2 : optional return variable (default - answer)
 	echo -e '\e[36m0\e[m / 1 ? '
 	read -n 1 answer
 	echo
-	[[ -v $2 ]] && eval $2=$answer
+	[[ $2 ]] && eval $2=$answer
 }
 setpwd() { #1 : optional return variable (default - pwd1)
 	echo
@@ -152,21 +152,21 @@ setpwd() { #1 : optional return variable (default - pwd1)
 		echo "$info Passwords not matched. Try again."
 		setpwd
 	fi
-	[[ -v $1 ]] && eval $1=$pwd1
+	[[ $1 ]] && eval $1=$pwd1
 }
 
 timestart() { # timelapse: any argument
 	time0=$( date +%s )
-	[[ $# -ne 0 ]] && timelapse0=$( date +%s )
+	[[ $1 ]] && timelapse0=$( date +%s )
 }
 timestop() { # timelapse: any argument
 	time1=$( date +%s )
-	if [[ $# -eq 0 ]]; then
-		dif=$(( $time1 - $time0 ))
-		stringlapse=''
-	else
+	if [[ $1 ]]; then
 		dif=$(( $time1 - $timelapse0 ))
 		stringlapse=' (timelapse)'
+	else
+		dif=$(( $time1 - $time0 ))
+		stringlapse=''
 	fi
 	min=$(( $dif / 60 ))
 	(( ${#min} == 1 )) && min=0$min
