@@ -175,4 +175,8 @@ timestop() { # timelapse: any argument
 	echo -e "\nDuration$stringlapse ${min}:$sec"
 }
 
+wgetnc() {
+    wget -qN --show-progress --no-check-certificate $@
+}
+
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
