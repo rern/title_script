@@ -114,7 +114,7 @@ title() {
 		shift
 	done
 
-	[[ $notop == 0 ]] && echo $( lcolor $ltop $ctop )
+	[[ $notop == 0 ]] && echo; echo $( lcolor $ltop $ctop )
 	echo -e "${@}" # $@ > "${@}" - preserve spaces 
 	[[ $nobottom == 0 ]] && echo $( lcolor $lbottom $cbottom )
 }
