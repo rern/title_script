@@ -177,11 +177,8 @@ timestop() { # timelapse: any argument
 }
 
 wgetnc() {
-	if [[ $( tput cols ) ]]; then
-		wget -qN --show-progress $@
-	else
-		wget -qN $@
-	fi
+	tty -s && progress='--show-progress'
+	wget -qN $progress $@
 }
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
