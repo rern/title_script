@@ -113,8 +113,9 @@ title() {
 		# 1.option + 0.without vale - shift once
 		shift
 	done
-
-	[[ $notop == 0 ]] && echo; echo $( lcolor $ltop $ctop )
+	
+	echo
+	[[ $notop == 0 ]] && echo $( lcolor $ltop $ctop )
 	echo -e "${@}" # $@ > "${@}" - preserve spaces 
 	[[ $nobottom == 0 ]] && echo $( lcolor $lbottom $cbottom )
 }
