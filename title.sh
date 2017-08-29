@@ -177,10 +177,11 @@ timestop() { # timelapse: any argument
 }
 
 wgetnc() {
-    wget -qN --show-progress --no-check-certificate $@
-}
-wgetqp() {
-    wget -qN --show-progress $@
+	if [[ $( tput cols ) ]]; then
+		wget -qN --show-progress $@
+	else
+		wget -qN $@
+	fi
 }
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
