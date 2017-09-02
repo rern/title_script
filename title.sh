@@ -59,7 +59,7 @@ ${t}$warn   $warn
 lcolor() {
 	local color=6
 	[[ $2 ]] && color=$2
-	[[ $( tput cols &> /dev/null ) ]] && col=$( tput cols ) || col=88
+	[[ $( tput cols &> /dev/null ) ]] && col=$( tput cols ) || col=89
 	printf "\e[38;5;${color}m%*s\e[0m\n" $col | tr ' ' "$1"
 }
 tcolor() { 
