@@ -110,7 +110,7 @@ title() {
 		esac
 		# shift 1 out of argument array '$@'
 		# 1.option + 1.value - shift twice
-		# 1.option + 0.without vale - shift once
+		# 1.option + 0.without value - shift once
 		shift
 	done
 	
