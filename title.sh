@@ -98,7 +98,7 @@ title() {
 				shift;;
 			-lb) lbottom=$2
 				shift;;
-			-nt) notop=1;;        # no 'shift' for option without vale
+			-nt) notop=1;;        # no 'shift' for option without value
 			-nb) nobottom=1;;
 			-h|-\?|--help) usage
 				return 0;;
