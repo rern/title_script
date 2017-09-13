@@ -182,7 +182,7 @@ wgetnc() {
 	wget -qN $progress $@
 }
 clearcache() {
-	[[ -t 1 ]] && systemctl reload php-fpm
+	systemctl reload php-fpm
 	if pgrep midori > /dev/null; then
 		killall midori
 		sleep 1
@@ -211,7 +211,6 @@ installfinish() {
 	
 	if [[ $1 == u ]]; then
 		title -l '=' "$bar $title updated successfully."
-		[[ $2 == c ]] && clearcache
 		exit
 	fi
 	
