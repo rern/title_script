@@ -218,7 +218,7 @@ uninstallstart() {
 	fi
 	
 	[[ $1 != u ]] && type=Uninstall || type=Update
-	title -l = "$bar $type $title ..."
+	title -l '=' "$bar $type $title ..."
 }
 uninstallfinish() {
 	rm $0
@@ -227,7 +227,7 @@ uninstallfinish() {
 
 	[[ $1 == u ]] && exit
 	
-	title -l = "$bar $title uninstalled successfully."
+	title -l '=' "$bar $title uninstalled successfully."
 }
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
