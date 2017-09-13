@@ -211,7 +211,7 @@ installfinish() {
 	
 	if [[ $1 == u ]]; then
 		title -l '=' "$bar $title updated successfully."
-		if [[ $2 == c ]] && clearcache
+		[[ $2 == c ]] && clearcache
 		exit
 	fi
 	
