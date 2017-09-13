@@ -181,14 +181,6 @@ wgetnc() {
 	tty -s && progress='--show-progress'
 	wget -qN $progress $@
 }
-clearcache() {
-	systemctl reload php-fpm
-	if pgrep midori > /dev/null; then
-		killall midori
-		sleep 1
-		xinit &> /dev/null &
-	fi
-}
 installstart() {
 	rm $0
 	
@@ -236,6 +228,14 @@ uninstallfinish() {
 	[[ $1 == u ]] && exit
 	
 	title -l '=' "$bar $title uninstalled successfully."
+}
+clearcache() {
+	systemctl reload php-fpm
+	if pgrep midori > /dev/null; then
+		killall midori
+		sleep 1
+		xinit &> /dev/null &
+	fi
 }
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
