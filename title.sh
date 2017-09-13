@@ -184,6 +184,8 @@ wgetnc() {
 installstart() {
 	rm $0
 	
+	title=$( sed -n "/alias.*$alias/{n;n;p}" /srv/http/addonslist.php | cut -d "'" -f 4 )
+	
 	if [[ -e /usr/local/bin/uninstall_$alias.sh ]]; then
 	  title -l '=' "$info $title already installed."
 	  title -nt "Please try update instead."
