@@ -229,5 +229,12 @@ uninstallfinish() {
 	
 	title -l '=' "$bar $title uninstalled successfully."
 }
+restartmidori() {
+	if pgrep midori > /dev/null; then
+		killall midori
+		sleep 1
+		xinit &> /dev/null &
+	fi
+}
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
