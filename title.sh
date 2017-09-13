@@ -182,12 +182,12 @@ wgetnc() {
 	wget -qN $progress $@
 }
 clearcache() {
+	[[ -t 1 ]] && systemctl reload php-fpm
 	if pgrep midori > /dev/null; then
 		killall midori
 		sleep 1
 		xinit &> /dev/null &
 	fi
-	[[ -t 1 ]] && systemctl reload php-fpm
 }
 installstart() {
 	rm $0
