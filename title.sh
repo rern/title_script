@@ -181,23 +181,46 @@ wgetnc() {
 	tty -s && progress='--show-progress'
 	wget -qN $progress $@
 }
-checkinstall() {
+installstart() {
+	rm $0
+	
 	if [[ -e /usr/local/bin/uninstall_$alias.sh ]]; then
 	  title -l '=' "$info $title already installed."
 	  title -nt "Please try update instead."
 	  redis-cli hset addons $alias 1 &> /dev/null
 	  exit
 	fi
-}
-saveversion() {
-	version=$( sed -n "/alias.*$alias/{n;p}" /srv/http/addonslist.php | cut -d "'" -f 4 )
-	redis-cli hset addons $alias $version &> /dev/null
+	
+	[[ $1 != u ]] && title -l '=' "$bar Install $title ..."
 }
 installfinish() {
-	[[ $1 != u ]] && title -l '=' "$bar $title updated successfully."; exit
+	version=$( sed -n "/alias.*$alias/{n;p}" /srv/http/addonslist.php | cut -d "'" -f 4 )
+	redis-cli hset addons $alias $version &> /dev/null
+	
+	[[ $1 == u ]] && title -l '=' "$bar $title updated successfully."; exit
 	
 	title -l '=' "$bar $title installed successfully."
 	[[ -t 1 ]] && echo -e "\nUninstall: uninstall_$alias.sh"
+}
+
+uninstallstart() {
+	if [[ ! -e /usr/local/bin/uninstall_$alias.sh ]]; then
+	  echo -e "$info $title not found."
+	  redis-cli hdel addons $alias &> /dev/null
+	  exit 1
+	fi
+	
+	[[ $1 != u ]] && type=Uninstall || type=Update
+	title -l = "$bar $type $title ..."
+}
+uninstallfinish() {
+	rm $0
+	
+	redis-cli hdel addons $alias &> /dev/null
+
+	[[ $1 == u ]] && exit
+	
+	title -l = "$bar $title uninstalled successfully."
 }
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
