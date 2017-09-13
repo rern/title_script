@@ -185,6 +185,7 @@ installstart() {
 	rm $0
 	
 	title=$( sed -n "/alias.*$alias/{n;n;p}" /srv/http/addonslist.php | cut -d "'" -f 4 )
+	title=$( tcolor "$title" )
 	
 	if [[ -e /usr/local/bin/uninstall_$alias.sh ]]; then
 	  title -l '=' "$info $title already installed."
@@ -215,6 +216,7 @@ installfinish() {
 uninstallstart() {
 	
 	title=$( sed -n "/alias.*$alias/{n;n;p}" /srv/http/addonslist.php | cut -d "'" -f 4 )
+	title=$( tcolor "$title" )
 	
 	if [[ ! -e /usr/local/bin/uninstall_$alias.sh ]]; then
 	  echo -e "$info $title not found."
