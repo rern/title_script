@@ -217,8 +217,6 @@ installfinish() {
 	
 	title -l '=' "$bar $title installed successfully."
 	[[ -t 1 ]] && echo -e "\nUninstall: uninstall_$alias.sh"
-	
-	if [[ $2 == c ]] && clearcache
 }
 
 uninstallstart() {
