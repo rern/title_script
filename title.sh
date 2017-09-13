@@ -181,5 +181,23 @@ wgetnc() {
 	tty -s && progress='--show-progress'
 	wget -qN $progress $@
 }
+checkinstall() {
+	if [[ -e /usr/local/bin/uninstall_$alias.sh ]]; then
+	  title -l '=' "$info $title already installed."
+	  title -nt "Please try update instead."
+	  redis-cli hset addons $alias 1 &> /dev/null
+	  exit
+	fi
+}
+saveversion() {
+	version=$( sed -n "/alias.*$alias/{n;p}" /srv/http/addonslist.php | cut -d "'" -f 4 )
+	redis-cli hset addons $alias $version &> /dev/null
+}
+installfinish() {
+	[[ $1 != u ]] && title -l '=' "$bar $title updated successfully."; exit
+	
+	title -l '=' "$bar $title installed successfully."
+	[[ -t 1 ]] && echo -e "\nUninstall: uninstall_$alias.sh"
+}
 
 [[ $1 == -h || $1 == --help || $1 == -? ]] && usage
