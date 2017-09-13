@@ -213,6 +213,9 @@ installfinish() {
 }
 
 uninstallstart() {
+	
+	title=$( sed -n "/alias.*$alias/{n;n;p}" /srv/http/addonslist.php | cut -d "'" -f 4 )
+	
 	if [[ ! -e /usr/local/bin/uninstall_$alias.sh ]]; then
 	  echo -e "$info $title not found."
 	  redis-cli hdel addons $alias &> /dev/null
