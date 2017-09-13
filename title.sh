@@ -199,7 +199,7 @@ installfinish() {
 	version=$( sed -n "/alias.*$alias/{n;p}" /srv/http/addonslist.php | cut -d "'" -f 4 )
 	redis-cli hset addons $alias $version &> /dev/null
 	
-	timestop
+#	timestop
 	
 	[[ $1 == u ]] && title -l '=' "$bar $title updated successfully."; exit
 	
