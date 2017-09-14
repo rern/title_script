@@ -177,7 +177,7 @@ timestop() { # timelapse: any argument
 	echo -e "\nDuration$stringlapse ${min}:$sec"
 }
 wgetnc() {
-	tty -s && progress='--show-progress'
+	[[ -t 1 ]] && progress='--show-progress'
 	wget -qN $progress $@
 }
 
